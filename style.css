@@ -1,0 +1,193 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Quicksand:wght@600&family=Roboto+Slab&family=Roboto:wght@300&display=swap');
+
+
+:root{
+    --light-color:#fff;
+    --dark-color:black;
+    --header-height:70px;
+    --search-height:50px;
+    --border-color:grey; 
+
+}
+/* those are the variaable defined inside the root */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+
+}
+ /* for body  */
+body{
+    height: 100vh;
+    width: 100wh;
+    background: greenyellow;
+    overflow: hidden;
+}
+.container{
+    text-align: center;
+    height: calc(100vh-var(--header-height));
+}
+header{
+    height: var(--header-height);
+    background-color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--light-color);
+    gap: 10px;
+    padding-right: 30px;
+}
+header img{
+    filter: invert(1);
+}
+
+.search{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: var(--search-height);
+    gap: 10px;
+    box-shadow: 0px 2px 8px 0px var(--border-color);
+}
+
+.search input[type="text"]{
+    padding: 8px 10px;
+    line-height: 1.5;
+    font-size: 1rem;
+    border: none;
+    border-left: 1px solid var(--border-color);
+    border-bottom: 1px solid transparent;
+    outline: none;
+    transition: all 200ms ease-in-out;
+    width: 60%;
+}
+.search input[type="text"]:focus{
+    border-left-color:transparent;
+    border-bottom-color:var(--border-color);
+    width: 61%;
+
+}
+.btn{
+    padding: 8px 10px;
+    background: transparent;
+    border-radius: 2px;
+    user-select: none;
+    font-size: 1rem;
+    border: 1px solid blue;
+    cursor: pointer;
+
+}
+.btn:hover{
+    background: blue;
+    border-color: var(--dark-color);
+    color: var(--light-color);
+}
+/* -----------------------------recipe---------------------------- */
+#recipe-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /*it is used to align all the images in proper row and column wise position*/
+    height: calc(100vh - (var(--header-height) + var(--search-height) + 20px));
+    overflow: hidden;
+    overflow-y: auto;
+}
+.recipe{
+    height: 250px;
+    width: 250px;
+    background-color: var(--light-color);
+    box-shadow: 0px 0px 8px 2px var(--border-color);
+    margin: 20px;
+    transition: all 200ms ease-in-out;
+    border-radius: 4px 4px 0px 0px;
+}
+.recipe-title{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.recipe-imge{
+    height: 210px;
+}
+.recipe-imge imge{
+    height: 100%;
+    width: 100%;
+}
+.recipe-text{
+    height: 120px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+    margin-top: 20px;
+    overflow: hidden;
+    overflow-y: auto;
+    transform: scale(0.8);
+    transform-origin:top left;  /*the over effect will start from top left side*/
+}
+.recipe-text ul{
+    list-style-type: circle;
+    list-style-position: inside;
+    text-align: left;
+    padding: 5px;
+}
+.recipe-text ul>li{
+    padding: 5px;
+}
+.recipe:hover .recipe-text{
+    height: 120px;
+    visibility: visible;
+    opacity: 1;
+    
+}
+.recipe:hover{
+    height: 420px;
+    cursor: pointer;
+}
+/* -------------------loading image----------------------------- */
+#loading{
+    background: url(image3.gif) no-repeat center center;
+    position: absolute;  
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+.hide{
+    display: none;
+}
+/* ----------------------footer---------------- */
+.copy-right{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    text-align: center; 
+    
+}
+/* --------------------------adding media query--------------------------- */
+
+@media only screen and (max-width: 700px) {
+    body{
+        background-color: greenyellow;
+    }
+    .recipe{
+        background-color: var(--light-color);
+        box-shadow: 0px 0px 10px 2px var(--dark-color);
+        width: 300px;
+    }
+    input[type="text"]{
+        background: transparent;
+        color: var(--dark-color);
+
+    }
+    .btn{
+        background: var(--light-color);
+        color: var(--dark-color);
+    }
+    .btn:hover{
+        background: blue;
+        border-color: var(--dark-color);
+        color: var(--light-color);
+    }
+}
