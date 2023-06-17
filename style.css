@@ -149,7 +149,7 @@ header img{
 }
 /* -------------------loading image----------------------------- */
 #loading{
-    background: url(image3.gif) no-repeat center center;
+    background: url(images/image3.gif) no-repeat center center;
     position: absolute;  
     width: 100%;
     height: 100%;
